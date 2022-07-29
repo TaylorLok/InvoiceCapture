@@ -8,6 +8,8 @@ use App\Models\Invoice;
 use App\Models\User;
 use Validator;
 use Auth;
+use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 
 class InvoiceController extends Controller

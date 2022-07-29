@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
@@ -34,6 +36,12 @@ class AuthController extends Controller
     //registrartion
     public function register(Request $request)
     {
+        $this->validate($request, [
+            'name'=>'required',
+            'email'=>'required|email|unique:users',
+            'password'=>'required'
+        ]);
+
         $encryptedPass = Hash::make($request->password);
 
         $user = new User;

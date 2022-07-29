@@ -27,4 +27,4 @@ Route::post('/register', [App\Http\Controllers\Api\AuthController::class, 'regis
 Route::get('/logout', [App\Http\Controllers\Api\AuthController::class, 'logout'])->name('logout');
 
 //invoice
-Route::post('/invoices/postCreate', [App\Http\Controllers\Api\InvoiceController::class, 'postCreate'])->name('invoice_post_create');
+Route::post('/invoices/postCreate', [App\Http\Controllers\Api\InvoiceController::class, 'postCreate'])->middleware('jwtAuth');
