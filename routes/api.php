@@ -28,3 +28,9 @@ Route::get('/logout', [App\Http\Controllers\Api\AuthController::class, 'logout']
 
 //invoice
 Route::post('/invoices/postCreate', [App\Http\Controllers\Api\InvoiceController::class, 'postCreate'])->middleware('jwtAuth');
+
+Route::post('/invoices/update', [App\Http\Controllers\Api\InvoiceController::class, 'update'])->middleware('jwtAuth');
+
+Route::post('/invoices/delete', [App\Http\Controllers\Api\InvoiceController::class, 'delete'])->middleware('jwtAuth');
+
+Route::get('/invoices/display_invoice', [App\Http\Controllers\Api\InvoiceController::class, 'display_invoice'])->middleware('jwtAuth');
